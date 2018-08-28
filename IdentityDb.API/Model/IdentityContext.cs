@@ -13,6 +13,14 @@ namespace IdentityDb.API.Model
         public IdentityContext(DbContextOptions<IdentityContext> options)
             : base(options)
         {
+            //Database.EnsureCreated();
         }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer("Server=tcp:tokeyserver.database.windows.net,1433;Initial Catalog=TestWebApp_DbTest;Persist Security Info=False;User ID=fruitybrew;Password=k19061906!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+        }
+
+
     }
 }

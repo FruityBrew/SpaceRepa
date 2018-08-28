@@ -11,9 +11,10 @@ using System;
 namespace IdentityDb.API.Migrations
 {
     [DbContext(typeof(IdentityContext))]
-    partial class IdentityContextModelSnapshot : ModelSnapshot
+    [Migration("20180827081105_Rrre")]
+    partial class Rrre
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,7 +30,7 @@ namespace IdentityDb.API.Migrations
 
                     b.Property<string>("Mail");
 
-                    b.Property<string>("Pass")
+                    b.Property<byte[]>("PassHash")
                         .IsRequired();
 
                     b.Property<DateTime?>("RegistrationDt");
